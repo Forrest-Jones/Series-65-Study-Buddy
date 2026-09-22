@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Series 65 Flashcards</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Series 65 Flashcards</h1>
+  <nav>
+    <button data-view="study" class="active">Study</button>
+    <button data-view="setup">Weak Areas</button>
+    <button data-view="stats">Progress</button>
+  </nav>
+</header>
+
+<main>
+  <!-- STUDY VIEW -->
+  <section id="view-study" class="view active">
+    <div class="toolbar">
+      <label>Deck
+        <select id="deck-select">
+          <option value="all">All sections (weighted to your weak areas)</option>
+          <option value="due">Due for review only</option>
+        </select>
+      </label>
+      <span id="counter"></span>
+    </div>
+
+    <div id="card" class="card">
+      <div class="card-section" id="card-section"></div>
+      <div class="card-face" id="card-front"></div>
+      <div class="card-face back hidden" id="card-back"></div>
+      <div class="hint">tap card or press <kbd>space</kbd> to flip</div>
+    </div>
+
+    <div id="grade" class="grade hidden">
+      <button class="wrong" data-grade="0">Missed it <kbd>1</kbd></button>
+      <button class="hard" data-grade="1">Shaky <kbd>2</kbd></button>
+      <button class="right" data-grade="2">Knew it <kbd>3</kbd></button>
+    </div>
+    <div id="empty" class="empty hidden">Nothing due right now. Switch the deck to "All sections" to keep drilling.</div>
+  </section>
+
+  <!-- WEAK AREAS VIEW -->
+  <section id="view-setup" class="view">
+    <h2>Enter your score card</h2>
+    <p>Type the percent you scored in each NASAA content area from your STC / FINRA score report. Sections you scored lowest in get shown more often. Leave blank to weight by exam weight only.</p>
+    <table id="weights"></table>
+    <p class="note">Exam weights are from the NASAA Series 65 content outline: 130 scored questions, 94 correct (72.3%) to pass.</p>
+    <button id="save-weights">Save</button>
+    <button id="reset-progress" class="danger">Reset all progress</button>
+  </section>
+
+  <!-- STATS VIEW -->
+  <section id="view-stats" class="view">
+    <h2>Progress by section</h2>
+    <table id="stats-table"></table>
+    <h2>Cards you keep missing</h2>
+    <ol id="miss-list"></ol>
+  </section>
+</main>
+
+<script src="cards/economics.js"></script>
+<script src="cards/vehicles.js"></script>
+<script src="cards/recommendations.js"></script>
+<script src="cards/laws.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
